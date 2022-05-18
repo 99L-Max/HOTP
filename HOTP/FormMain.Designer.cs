@@ -34,7 +34,8 @@ namespace HOTP
             this.comboBoxHash = new System.Windows.Forms.ComboBox();
             this.buttonGenerate = new System.Windows.Forms.Button();
             this.textBoxKey = new System.Windows.Forms.TextBox();
-            this.buttonChangeCounterHMACSHA1 = new System.Windows.Forms.Button();
+            this.numericUpDownCounterHOTP = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCounterHOTP)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxResult
@@ -55,7 +56,7 @@ namespace HOTP
             "HMAC-SHA-1"});
             this.comboBoxHash.Location = new System.Drawing.Point(12, 12);
             this.comboBoxHash.Name = "comboBoxHash";
-            this.comboBoxHash.Size = new System.Drawing.Size(280, 28);
+            this.comboBoxHash.Size = new System.Drawing.Size(176, 28);
             this.comboBoxHash.TabIndex = 2;
             this.comboBoxHash.SelectedIndexChanged += new System.EventHandler(this.comboBoxHash_SelectedIndexChanged);
             // 
@@ -80,22 +81,20 @@ namespace HOTP
             this.textBoxKey.Enter += new System.EventHandler(this.textBoxKey_Enter);
             this.textBoxKey.Leave += new System.EventHandler(this.textBoxKey_Leave);
             // 
-            // buttonChangeCounterHMACSHA1
+            // numericUpDownCounterHOTP
             // 
-            this.buttonChangeCounterHMACSHA1.Location = new System.Drawing.Point(298, 12);
-            this.buttonChangeCounterHMACSHA1.Name = "buttonChangeCounterHMACSHA1";
-            this.buttonChangeCounterHMACSHA1.Size = new System.Drawing.Size(94, 28);
-            this.buttonChangeCounterHMACSHA1.TabIndex = 5;
-            this.buttonChangeCounterHMACSHA1.Text = "Счётчик";
-            this.buttonChangeCounterHMACSHA1.UseVisualStyleBackColor = true;
-            this.buttonChangeCounterHMACSHA1.Click += new System.EventHandler(this.buttonChangeCounterHMACSHA1_Click);
+            this.numericUpDownCounterHOTP.Location = new System.Drawing.Point(194, 13);
+            this.numericUpDownCounterHOTP.Name = "numericUpDownCounterHOTP";
+            this.numericUpDownCounterHOTP.Size = new System.Drawing.Size(198, 26);
+            this.numericUpDownCounterHOTP.TabIndex = 5;
+            this.numericUpDownCounterHOTP.ValueChanged += new System.EventHandler(this.numericUpDownCounterHOTP_ValueChanged);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 206);
-            this.Controls.Add(this.buttonChangeCounterHMACSHA1);
+            this.Controls.Add(this.numericUpDownCounterHOTP);
             this.Controls.Add(this.textBoxKey);
             this.Controls.Add(this.buttonGenerate);
             this.Controls.Add(this.comboBoxHash);
@@ -106,6 +105,7 @@ namespace HOTP
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HOTP";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCounterHOTP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,7 +116,7 @@ namespace HOTP
         private System.Windows.Forms.ComboBox comboBoxHash;
         private System.Windows.Forms.Button buttonGenerate;
         private System.Windows.Forms.TextBox textBoxKey;
-        private System.Windows.Forms.Button buttonChangeCounterHMACSHA1;
+        private System.Windows.Forms.NumericUpDown numericUpDownCounterHOTP;
     }
 }
 

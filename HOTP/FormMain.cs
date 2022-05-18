@@ -9,6 +9,7 @@ namespace HOTP
         public FormMain()
         {
             InitializeComponent();
+            numericUpDownCounterHOTP.Maximum = long.MaxValue;
             comboBoxHash.SelectedIndex = 0;
         }
 
@@ -22,11 +23,10 @@ namespace HOTP
             if (comboBoxHash.SelectedIndex == 0)
                 textBoxResult.Text = HashFunction.SHA1(textBoxKey.Text);
             else
+            {
                 textBoxResult.Text = HashFunction.HMACHSHA1(textBoxKey.Text).ToString("000000");
-        }
-        private void buttonChangeCounterHMACSHA1_Click(object sender, EventArgs e)
-        {
-            new FormCounterHMACSHA1().ShowDialog();
+                numericUpDownCounterHOTP.Value = HashFunction.counter;
+            }
         }
 
         private void textBoxKey_Enter(object sender, EventArgs e)
@@ -49,7 +49,12 @@ namespace HOTP
 
         private void comboBoxHash_SelectedIndexChanged(object sender, EventArgs e)
         {
-            buttonChangeCounterHMACSHA1.Enabled = comboBoxHash.SelectedIndex == 1;
+            numericUpDownCounterHOTP.Enabled = comboBoxHash.SelectedIndex == 1;
+        }
+
+        private void numericUpDownCounterHOTP_ValueChanged(object sender, EventArgs e)
+        {
+            HashFunction.counter = (long)numericUpDownCounterHOTP.Value;
         }
     }
 }
